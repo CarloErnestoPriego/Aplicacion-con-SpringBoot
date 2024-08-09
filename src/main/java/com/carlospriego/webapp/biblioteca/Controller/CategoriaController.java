@@ -1,4 +1,4 @@
-package com.carlospriego.webapp.biblioteca.Controller;
+    package com.carlospriego.webapp.biblioteca.Controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -34,9 +34,9 @@ public class CategoriaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Categoria> buscarcCategoriaPorId(@PathVariable Long id){
+    public ResponseEntity<Categoria> buscarCategoriaPorId(@PathVariable Long id){
         try {
-            Categoria categoria = categoriaService.buscarcCategoriaPorId(id);
+            Categoria categoria = categoriaService.buscarCategoriaPorId(id);
 
             return ResponseEntity.ok(categoria);
         } catch (Exception e) {
@@ -61,7 +61,7 @@ public class CategoriaController {
     public ResponseEntity<Map<String, String>> editarCategoria(@PathVariable Long id, @RequestBody Categoria categoriaNueva){
         Map<String, String> response = new HashMap<>();
         try {
-            Categoria categoria = categoriaService.buscarcCategoriaPorId(id);
+            Categoria categoria = categoriaService.buscarCategoriaPorId(id);
             categoria.setNombreCategoria(categoriaNueva.getNombreCategoria());
             categoriaService.guardarCategoria(categoria);
             response.put("message", "La categoria se ha modificado con exito");
@@ -77,7 +77,7 @@ public class CategoriaController {
     public ResponseEntity<Map<String, String>> eliminarCategoria(@PathVariable Long id){
         Map<String, String> response = new HashMap<>();
         try {
-            Categoria categoria = categoriaService.buscarcCategoriaPorId(id);
+            Categoria categoria = categoriaService.buscarCategoriaPorId(id);
             categoriaService.eliminarCategoria(categoria);
             response.put("message", "la categoria de ha eliminado con exito");
             return ResponseEntity.ok(response);

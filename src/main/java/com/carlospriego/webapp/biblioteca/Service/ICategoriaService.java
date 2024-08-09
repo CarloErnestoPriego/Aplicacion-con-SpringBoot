@@ -10,7 +10,7 @@ public interface ICategoriaService {
 
     public Categoria guardarCategoria(Categoria categoria);
 
-    public Categoria buscarcCategoriaPorId(Long id);
+    public Categoria buscarCategoriaPorId(Long id);
 
     public void eliminarCategoria(Categoria categoria);
 }
